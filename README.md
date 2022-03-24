@@ -11,4 +11,4 @@ marks = deepQRS(ecg,W,stride=50);
 
 As deepQRS slides a prediction window throughout the ecg, it is suitable to be used online by being called repeatedly.
 
-Check example.m for an example on how to use it.
+Check example.m for a demonstration on how to use it.
