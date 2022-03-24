@@ -1,14 +1,18 @@
-function peak_ids = deepQRS(ecg,W,stride)
+function peak_ids = deepQRS(ecg,W,varargin)
 % ecg:          vector of points, sampled at 250 Hz
 % W:            struct with weights and biases of the LSTM model
-% stride:       scalar, meaning the number of points to jump between detections (each occurs in a window with length defined by the model)
+% stride:       scalar (<50>), meaning the number of points to jump between detections (each occurs in a window with length defined by the model)
 %
 % Eg.:  1 - add deepQRS folder/subfolders to path
 %       2 - load('EEG.mat'); ecg = EEG.data(ismember(upper({EEG.chanlocs(:).labels}),{'ECG','EKG'}),:); W = load('weights.mat');
-%       3 - deepQRS(ecg,W,stride)
+%       3 - deepQRS(ecg,W)
 
 ecg = ecg(:);  % Convert to column
 win_len = W.t;  % 500
+stride = 50;
+if nargin > 2
+    stride = varargin{1};
+end
 
 part_lims = 0:stride:win_len;
 nparts = numel(part_lims)-1;
