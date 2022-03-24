@@ -11,16 +11,4 @@ marks = deepQRS(ecg,W,stride=50);
 
 As deepQRS slides a prediction window throughout the ecg, it is suitable to be used online by being called repeatedly.
 
-E.g.: (present in main_deepQRS.m)
-
-%% Load
-
-load('data/data.mat','EEG'); ecg = EEG.data(ismember(upper({EEG.chanlocs(:).labels}),{'ECG','EKG'}),:); W = load('/model/model.mat');
-
-%% Detect
-
-marks = deepQRS(ecg,W,50);
-
-%% Plot
-
-figure, plot(ecg), hold on, plot(marks,ecg(marks),'*r')
+Check example.m for an example on how to use it.
