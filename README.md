@@ -3,7 +3,7 @@ An automatic QRS detection algorithm using Deep Learning in MATLAB. It uses an L
 
 To use it, call deepQRS as:
 
-marks = deepQRS(ecg,W,stride);
+marks = deepQRS(ecg,W,stride=50);
 
 - ecg: ecg vector, sampled at 250 Hz.
 - W: struct with the weights and biases of the model;
