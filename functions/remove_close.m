@@ -10,7 +10,7 @@ if numel(ids) > 0
             close_ids = [close_ids, ids(i)];
         end
         if dist >= min_hc_len
-            max_id = find(win(close_ids));
+            [~,max_id] = max(win(close_ids));
             for j = 1:numel(close_ids)
                 if j ~= max_id
                     dist_scores(i-numel(close_ids)+j-1) = false;
@@ -19,7 +19,7 @@ if numel(ids) > 0
             close_ids = ids(i);
             dist = 0;
         elseif i == numel(ids)
-            max_id = find(win(close_ids));
+            [~,max_id] = max(win(close_ids));
             for j = 1:close_ids
                if j ~= max_id
                    dist_scores(i-numel(close_ids)+j+0) = false;
