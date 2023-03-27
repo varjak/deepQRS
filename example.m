@@ -4,7 +4,7 @@ addpath(genpath('./functions'))
 %% Load
 load('data/data.mat','EEG');
 ecg = EEG.data(ismember(upper({EEG.chanlocs(:).labels}),{'ECG','EKG'}),:);
-W = load('/model/weights.mat');
+W = load('model/weights.mat');
 
 %% Detect
 marks = deepQRS(ecg,W);
