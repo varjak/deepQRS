@@ -12,3 +12,9 @@ marks = deepQRS(ecg,W,stride=50);
 As deepQRS slides a prediction window throughout the ecg, it is suitable to be used online by being called repeatedly.
 
 Check example.m for a demonstration on how to use it.
+
+PS. Based on the data I have used, I can see that deepQRS detects most R peaks correctly, except for some that seem perfectly normal and somewhat periodically spaced. I am not sure why this happens (it might be a small bug). Therefore, I recommend using interactiveQRS after, to confirm the results and mark the missing R peaks:
+
+[Github] https://github.com/LaSEEB/interactiveQRS
+
+[Mathworks file exchange] https://www.mathworks.com/matlabcentral/fileexchange/126884-interactiveqrs
